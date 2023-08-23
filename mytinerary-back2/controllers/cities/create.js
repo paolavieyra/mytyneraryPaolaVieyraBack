@@ -10,10 +10,13 @@ export default async (req,res) => {
       response: newCity._id
     })
     }catch(err){
+      console.log(err)
       return res.status(400).json({
+        
         success: false,
         message: 'not created',
         response: null
+
       })
     }
     }
