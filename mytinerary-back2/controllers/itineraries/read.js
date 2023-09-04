@@ -1,5 +1,5 @@
 import { query } from "express";
-import City from "../../models/City.js";
+import Itinerary from "../../models/Itenerary";
 
 export default async (req,res,next) => {
     try {
@@ -10,21 +10,21 @@ export default async (req,res,next) => {
         if (req.query.admin_id) {
             objetoDeBusqueda.admin_id = req.query.admin_id
         }
-        if (req.query.city){
-            objetoDeBusqueda.city = new RegExp (req.query.city,'i') 
+        if (req.query.Itinerary){
+            objetoDeBusqueda.Itinerary = new RegExp (req.query.Itinerary,'i') 
             //new RegExp(req.query.title, 'i')
         }
         if (req.query.sort)
-            objetoDeOrdenamiento.city = req.query.sort
+            objetoDeOrdenamiento.Itinerary = req.query.sort
         //agrego la propiedad por la cual quiero ordenar
         //si es 1 ordena ascendentemente
         //si es -1 ordena descendentemente
-        let allCities = await City.find(objetoDeBusqueda, 'country city photo admin_id ').populate('admin_id', 'photo name mail -_id').sort(objetoDeOrdenamiento)
-        if (allCities.length > 0) {
+        let allItineraries = await Itinerary.find(objetoDeBusqueda, 'country Itinerary photo admin_id ').populate('admin_id', 'photo name mail -_id').sort(objetoDeOrdenamiento)
+        if (allItineraries.length > 0) {
             return res.status(200).json({
                 success: true,
-                message: 'cities found',
-                response: allCities
+                message: 'Itineraries found',
+                response: allItineraries
             })
         } else {
             return res.status(404).json({
