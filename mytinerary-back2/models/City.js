@@ -12,7 +12,7 @@ let schema = new Schema({
     officialReligión: { type:String,required:true },
     goverment: { type:String,required:true },
     currency: { type:String,required:true },
-    admin_id: { type:Types.ObjectId,required:true,ref:'users'  }
+    admin_id: { type:Types.ObjectId,required:true,ref:'user'  }
     //para relacionar datos en mongo es necesario refenciar el dato hacia la coleccion que necesito relacionar  
 },{
     timestamps: true

@@ -3,7 +3,7 @@ import create from '../controllers/itineraries/create.js';
 //import read from '../controllers/itineraries/read.js';
 import readByCity from '../controllers/itineraries/readByCity.js';
 // import readOne from '../controllers/cities/readOne.js';
-// import update from '../controllers/cities/update.js';
+import update from '../controllers/cities/update.js';
 // import destroy from '../controllers/cities/destroy.js';
 // import carousel from '../controllers/cities/carousel.js'
 
@@ -18,8 +18,8 @@ router.get('/city/:id',readByCity)
 // router.get('/carousel',carousel)
 // router.get('/:id',readOne)
 
-// //update
-// router.put('/',update)
+ //update
+ router.put('/:i_id',update)
 
 // //destroy
 // router.delete('/:id',destroy)
